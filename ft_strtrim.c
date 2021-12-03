@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
 static int	is_in_set(char c, const char *set)
 {
@@ -55,7 +56,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*v;
 
 	len = newsize(s1, set);
-	v = malloc(len + 1);
+	if (len == 0 || len > ft_strlen(s1) + 1)
+	{
+		v = malloc(1);
+		v[0] = '\0';
+		return (v);
+	}
+	v = malloc(len);
 	if (v == NULL)
 		return (NULL);
 	i = 0;
