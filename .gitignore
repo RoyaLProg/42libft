@@ -1,5 +1,5 @@
 *.o
 *.a
 *.out
-libft-unit-test
-libfttester
+libft-unit-test/*
+libfttester/*
