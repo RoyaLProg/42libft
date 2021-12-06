@@ -68,6 +68,10 @@ TITLE="\n $(BLUE) ██████  ██████  █████  █�
 
 all : title $(OBJ) $(NAME)
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
 $(NAME) : title $(OBJ)
 	ar -cq $(NAME) $(OBJ)
 

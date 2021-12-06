@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 	char	temp[2 ^ (sizeof(size_t) * 8)];
 
+	if (!dest && !src)
+		return (dest);
 	i = 0;
 	while (i < n)
 	{
