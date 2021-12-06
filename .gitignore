@@ -4,3 +4,4 @@
 *.so
 libft-unit-test/*
 libfttester/*
+ft_memmove_temp.c

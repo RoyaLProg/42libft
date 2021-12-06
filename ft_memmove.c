@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 12:35:33 by ccambium          #+#    #+#             */
-/*   Updated: 2021/10/28 12:43:45 by ccambium         ###   ########.fr       */
+/*   Created: 2021/12/06 15:55:39 by ccambium          #+#    #+#             */
+/*   Updated: 2021/12/06 16:16:43 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,25 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char	temp[2 ^ (sizeof(size_t) * 8)];
 
-	if (!dest && !src)
+	i = 0;
+	if ((!src && !dest) || n == 0)
 		return (dest);
-	i = 0;
-	while (i < n)
+	if (dest <= src)
 	{
-		*(temp + i) = *((char *)src + (i));
-		i++;
+		i = 0;
+		while (i < n)
+		{
+			*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+			i++;
+		}
+		return (dest);
 	}
-	i = 0;
-	while (i < n)
+	i = n;
+	while (i > 0)
 	{
-		*((char *)dest + (i)) = *(temp + i);
-		i++;
+		*((unsigned char *) dest + i - 1) = *((unsigned char *)src + i - 1);
+		i--;
 	}
 	return (dest);
 }
