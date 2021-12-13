@@ -45,6 +45,20 @@ static size_t	size_next_word(char const *s, char c)
 	return (i);
 }
 
+static void	*free_all(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**v;
@@ -66,7 +80,7 @@ char	**ft_split(char const *s, char c)
 		len = size_next_word(s + j, c);
 		v[i] = malloc(len + 1);
 		if (v[i] == NULL)
-			return (NULL);
+			return (free_all(v));
 		ft_strlcpy(v[i], s + j, len + 1);
 		j += len;
 	}
