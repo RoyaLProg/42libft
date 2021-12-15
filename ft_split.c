@@ -48,12 +48,14 @@ static size_t	size_next_word(char const *s, char c)
 static void	*free_all(char **tab)
 {
 	size_t	i;
+	void	*x;
 
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		free(tab[i]);
+		x = tab[i];
 		i++;
+		free(x);
 	}
 	free(tab);
 	return (NULL);
