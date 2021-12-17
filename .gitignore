@@ -2,6 +2,5 @@
 *.a
 *.out
 *.so
-libft-unit-test/*
-libfttester/*
+libftTester/*
 ft_memmove_temp.c

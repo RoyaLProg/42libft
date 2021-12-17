@@ -85,7 +85,7 @@ title:clear
 clear:
 	clear
 
-%.o: %.c
+.o: .c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 mrproper: clean
